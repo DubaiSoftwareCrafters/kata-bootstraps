@@ -6,7 +6,7 @@ namespace DotnetStarter.Logic.Tests;
 
 public class SimpleScoreTest
 {
-    private Game _game = new();
+    private readonly Game _game = new();
 
     [Fact]
     public void OneRollZeroScore()
@@ -40,7 +40,7 @@ public class SimpleScoreTest
 
 public class Game
 {
-    private List<int> _pinsList = new();
+    private readonly List<int> _pinsList = new();
 
     public int Score()
     {
