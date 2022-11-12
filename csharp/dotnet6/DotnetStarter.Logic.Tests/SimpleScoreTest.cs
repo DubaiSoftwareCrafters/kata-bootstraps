@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace DotnetStarter.Logic.Tests;
@@ -38,15 +40,15 @@ public class SimpleScoreTest
 
 public class Game
 {
-    private int _pins;
+    private List<int> _pinsList = new();
 
     public int Score()
     {
-        return _pins;
+        return _pinsList.Sum();
     }
 
     public void Roll(int pins)
     {
-        _pins += pins;
+        _pinsList.Add(pins);
     }
 }
