@@ -22,8 +22,16 @@ public class SimpleScoreTest
 
 public class Game
 {
+    private int _pins;
+
     public int Score(int pins)
     {
-        return pins;
+        Roll(pins);
+        return _pins;
+    }
+
+    private void Roll(int pins)
+    {
+        _pins = pins;
     }
 }
