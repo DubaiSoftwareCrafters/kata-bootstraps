@@ -13,7 +13,7 @@ namespace Kata.Tests
             // Act
             var actual = sut.SayHelloWorld();
             // Assert
-            actual.Should().Be("Oh oh...");
+            actual.Should().Be("Hello World!");
         }
     }
 }
