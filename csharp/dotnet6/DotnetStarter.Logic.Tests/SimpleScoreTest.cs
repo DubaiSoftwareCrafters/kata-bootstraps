@@ -44,7 +44,13 @@ public class Game
 
     public int Score()
     {
-        return _pinsList.Sum();
+        int sum = 0;
+        for (var rollIndex = 0; rollIndex < _pinsList.Count; rollIndex++)
+        {
+            sum += _pinsList[rollIndex];
+        }
+
+        return sum;
     }
 
     public void Roll(int pins)
