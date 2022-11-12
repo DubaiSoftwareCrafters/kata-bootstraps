@@ -47,6 +47,13 @@ public class Game
         int sum = 0;
         for (var rollIndex = 0; rollIndex < _pinsList.Count; rollIndex++)
         {
+            if (rollIndex > 1)
+            {
+                if (_pinsList[rollIndex - 2] + _pinsList[rollIndex - 1] == 10)
+                {
+                    sum += _pinsList[rollIndex];
+                }    
+            }
             sum += _pinsList[rollIndex];
         }
 

@@ -6,7 +6,7 @@ public class SpareScoreTest
 {
     private readonly Game _game = new();
 
-    [Fact(Skip = "wip")]
+    [Fact]
     public void ThreeRolls_Spare_BonusPoints()
     {
         _game.Roll(5);
