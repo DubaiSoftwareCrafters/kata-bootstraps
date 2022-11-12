@@ -47,6 +47,6 @@ public class Game
 
     public void Roll(int pins)
     {
-        _pins = pins;
+        _pins += pins;
     }
 }
