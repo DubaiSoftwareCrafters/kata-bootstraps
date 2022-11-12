@@ -49,7 +49,7 @@ public class Game
         {
             if (rollIndex > 1)
             {
-                if (_pinsList[rollIndex - 2] + _pinsList[rollIndex - 1] == 10)
+                if (IsSpare(rollIndex))
                 {
                     sum += _pinsList[rollIndex];
                 }    
@@ -58,6 +58,11 @@ public class Game
         }
 
         return sum;
+    }
+
+    private bool IsSpare(int rollIndex)
+    {
+        return _pinsList[rollIndex - 2] + _pinsList[rollIndex - 1] == 10;
     }
 
     public void Roll(int pins)
