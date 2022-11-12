@@ -8,17 +8,21 @@ public class SimpleScoreTest
     public void OneRollZeroScore()
     {
         var pins = 0;
-        Assert.Equal(0,Score(pins));
+        
+        Assert.Equal(0,new Game().Score(pins));
     }
     
     [Fact]
     public void OneRollEightScore()
     {
         var pins = 8;
-        Assert.Equal(8,Score(pins));
+        Assert.Equal(8,new Game().Score(pins));
     }
+}
 
-    private static int Score(int pins)
+public class Game
+{
+    public int Score(int pins)
     {
         return pins;
     }
