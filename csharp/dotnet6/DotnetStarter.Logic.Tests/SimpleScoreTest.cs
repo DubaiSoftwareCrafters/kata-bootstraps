@@ -11,7 +11,7 @@ public class SimpleScoreTest
 
         var game = new Game();
         game.Roll(pins);
-        var actual = game.Score(pins);
+        var actual = game.Score();
         Assert.Equal(0,actual);
     }
     
@@ -21,7 +21,7 @@ public class SimpleScoreTest
         var pins = 8;
         var game = new Game();
         game.Roll(pins);
-        var actual = game.Score(pins);
+        var actual = game.Score();
         Assert.Equal(8,actual);
     }
 }
@@ -30,9 +30,8 @@ public class Game
 {
     private int _pins;
 
-    public int Score(int pins)
+    public int Score()
     {
-        Roll(pins);
         return _pins;
     }
 
