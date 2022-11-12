@@ -4,7 +4,7 @@ namespace DotnetStarter.Logic.Tests;
 
 public class SimpleScoreTest
 {
-    private Game _game = new Game();
+    private Game _game = new();
 
     [Fact]
     public void OneRollZeroScore()
@@ -13,8 +13,7 @@ public class SimpleScoreTest
 
         _game.Roll(pins);
 
-        var actual = _game.Score();
-        Assert.Equal(pins, actual);
+        Assert.Equal(pins, _game.Score());
     }
 
     [Fact]
@@ -24,8 +23,7 @@ public class SimpleScoreTest
 
         _game.Roll(pins);
 
-        var actual = _game.Score();
-        Assert.Equal(pins, actual);
+        Assert.Equal(pins, _game.Score());
     }
 }
 
