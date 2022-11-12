@@ -20,6 +20,6 @@ public class SimpleScoreTest
 
     private int score(int pins)
     {
-        return 0;
+        return pins;
     }
 }
