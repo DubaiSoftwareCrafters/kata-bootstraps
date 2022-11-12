@@ -25,6 +25,15 @@ public class SimpleScoreTest
 
         Assert.Equal(pins, _game.Score());
     }
+
+    [Fact]
+    public void TwoRollsSevenScore()
+    {
+        _game.Roll(2);
+        _game.Roll(5);
+        
+        Assert.Equal(7, _game.Score());
+    }
 }
 
 public class Game
