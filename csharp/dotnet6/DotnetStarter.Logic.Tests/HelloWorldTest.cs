@@ -9,5 +9,6 @@ namespace DotnetStarter.Logic.Tests
         {
             Assert.Equal("World!", HelloWorld.Hello());
         }
+        
     }
 }
