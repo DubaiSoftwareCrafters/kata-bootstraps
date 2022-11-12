@@ -4,15 +4,16 @@ namespace DotnetStarter.Logic.Tests;
 
 public class SimpleScoreTest
 {
+    private Game _game = new Game();
+
     [Fact]
     public void OneRollZeroScore()
     {
         var pins = 0;
-        var game = new Game();
 
-        game.Roll(pins);
+        _game.Roll(pins);
 
-        var actual = game.Score();
+        var actual = _game.Score();
         Assert.Equal(pins, actual);
     }
 
@@ -20,11 +21,10 @@ public class SimpleScoreTest
     public void OneRollEightScore()
     {
         var pins = 8;
-        var game = new Game();
 
-        game.Roll(pins);
+        _game.Roll(pins);
 
-        var actual = game.Score();
+        var actual = _game.Score();
         Assert.Equal(pins, actual);
     }
 }
