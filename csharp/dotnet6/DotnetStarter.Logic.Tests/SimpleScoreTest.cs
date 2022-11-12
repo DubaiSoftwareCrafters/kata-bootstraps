@@ -8,21 +8,24 @@ public class SimpleScoreTest
     public void OneRollZeroScore()
     {
         var pins = 0;
-
         var game = new Game();
+
         game.Roll(pins);
+
         var actual = game.Score();
-        Assert.Equal(0,actual);
+        Assert.Equal(pins, actual);
     }
-    
+
     [Fact]
     public void OneRollEightScore()
     {
         var pins = 8;
         var game = new Game();
+
         game.Roll(pins);
+
         var actual = game.Score();
-        Assert.Equal(8,actual);
+        Assert.Equal(pins, actual);
     }
 }
 
