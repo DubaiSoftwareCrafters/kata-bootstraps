@@ -13,11 +13,16 @@ def score():
 
 
 class Game:
+    def __init__(self):
+        self._pins = None
+
     def roll(self, pins):
+        self._pins = pins
         roll(pins)
 
     def score(self):
-        return score()
+        return self._pins
+        # return score()
 
 
 class BowlingTestCase(unittest.TestCase):
