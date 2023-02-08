@@ -29,7 +29,10 @@ The bonus for that frame is the value of the next two rolls.
 In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame.
 However no more than three balls can be rolled in tenth frame.
 
+pins => bottles
+game => rolling ball => knock down pins => score
 
+Test List: (Examples of situation that can occur while playing a game)
 1. Rolls Zero Score Zero
 2. Rolls One Scores One
 3. Rolls One Tow Times scores two
