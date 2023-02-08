@@ -63,5 +63,6 @@ class BowlingTestCase(unittest.TestCase):
         game.roll(6)
         game.roll(4)
         game.roll(2)
+        game.roll(3)
 
-        self.assertEqual(14, game.score())
+        self.assertEqual(17, game.score())
