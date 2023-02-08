@@ -13,6 +13,8 @@ To execute the tests run `python -m unittest todo_project_name_test`
 The methods starting with 'test_' are going to be discovered automatically.
 
 
+**Bowling Kata:**
+
 The game consists of 10 frames.
 In each frame the player has two rolls to knock down 10 pins.
 The score for the frame is the total number of pins knocked down, plus bonuses for strikes and spares.
@@ -24,4 +26,17 @@ A strike is when the player knocks down all 10 pins on his first roll.
 The frame is then completed with a single roll.
 The bonus for that frame is the value of the next two rolls.
 
-In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. However no more than three balls can be rolled in tenth frame.
+In the tenth frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame.
+However no more than three balls can be rolled in tenth frame.
+
+
+1. Rolls Zero Score Zero
+2. Rolls One Scores One
+3. Rolls One Tow Times scores two
+4. Roll spare Bonus
+5. Consecutive Spare
+6. Roll Spare between Frames
+7. Roll Strike Bonus
+8. Roll Strike Between Frames
+
+
