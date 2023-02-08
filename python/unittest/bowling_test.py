@@ -15,6 +15,6 @@ class BowlingTestCase(unittest.TestCase):
         roll(0)
         self.assertEqual(score(), 0)
 
-    def test_score_is_zero_when_one_pin_is_knocked(self):
+    def test_score_is_one_when_one_pin_is_knocked(self):
         roll(1)
         self.assertEqual(score(), 1)
