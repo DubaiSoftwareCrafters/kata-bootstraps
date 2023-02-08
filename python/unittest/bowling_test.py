@@ -1,12 +1,12 @@
 import unittest
 
-
 class Game:
+
     def __init__(self):
-        self._pins = None
+        self._pins = 0
 
     def roll(self, pins):
-        self._pins = pins
+        self._pins += pins
 
     def score(self):
         return self._pins
@@ -27,3 +27,11 @@ class BowlingTestCase(unittest.TestCase):
         game.roll(1)
 
         self.assertEqual(1, game.score())
+
+    def test_score_is_two_when_one_pin_is_knocked_in_two_rolls(self):
+        game = Game()
+
+        game.roll(1)
+        game.roll(1)
+
+        self.assertEqual(2, game.score())
