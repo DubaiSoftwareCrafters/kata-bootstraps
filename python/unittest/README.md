@@ -39,4 +39,3 @@ However no more than three balls can be rolled in tenth frame.
 7. Roll Strike Bonus
 8. Roll Strike Between Frames
 
-
