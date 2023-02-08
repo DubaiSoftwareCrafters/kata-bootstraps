@@ -6,7 +6,7 @@ def roll(param):
 
 
 def score():
-    pass
+    return 0
 
 
 class BowlingTestCase(unittest.TestCase):
