@@ -4,16 +4,16 @@ import unittest
 class Game:
 
     def __init__(self):
-        self._pins = 0
+        self.score = 0
 
     def roll(self, pins):
-        if self._pins == 10:
-            self._pins += pins
+        if self.score == 10:
+            self.score += pins
 
-        self._pins += pins
+        self.score += pins
 
     def score(self):
-        return self._pins
+        return self.score
 
 
 class BowlingTestCase(unittest.TestCase):
