@@ -1,11 +1,15 @@
 import unittest
 
+
 class Game:
 
     def __init__(self):
         self._pins = 0
 
     def roll(self, pins):
+        if self._pins == 10:
+            self._pins += pins
+
         self._pins += pins
 
     def score(self):
@@ -35,3 +39,12 @@ class BowlingTestCase(unittest.TestCase):
         game.roll(1)
 
         self.assertEqual(2, game.score())
+
+    def test_score_spare_bonus(self):
+        game = Game()
+
+        game.roll(5)
+        game.roll(5)
+        game.roll(2)
+
+        self.assertEqual(14, game.score())
