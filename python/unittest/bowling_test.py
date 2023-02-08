@@ -1,20 +1,23 @@
 import unittest
 
+_pins = 0
 
-def roll(param):
-    pass
+
+def roll(pins):
+    global _pins
+    _pins = pins
 
 
 def score():
-    return 0
+    return _pins
 
 
 class BowlingTestCase(unittest.TestCase):
 
     def test_score_is_zero_when_zero_pins_are_knocked(self):
         roll(0)
-        self.assertEqual(score(), 0)
+        self.assertEqual(0, score())
 
     def test_score_is_one_when_one_pin_is_knocked(self):
         roll(1)
-        self.assertEqual(score(), 1)
+        self.assertEqual(1, score())
