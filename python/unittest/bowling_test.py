@@ -48,3 +48,20 @@ class BowlingTestCase(unittest.TestCase):
         game.roll(2)
 
         self.assertEqual(14, game.score())
+
+    def test_score_spare_bonus(self):
+        game = Game()
+
+        game.roll(5)
+        game.roll(5)
+        game.roll(2)
+
+        self.assertEqual(14, game.score())
+
+        game = Game()
+
+        game.roll(6)
+        game.roll(4)
+        game.roll(2)
+
+        self.assertEqual(14, game.score())
