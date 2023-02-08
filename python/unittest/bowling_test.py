@@ -18,11 +18,9 @@ class Game:
 
     def roll(self, pins):
         self._pins = pins
-        roll(pins)
 
     def score(self):
         return self._pins
-        # return score()
 
 
 class BowlingTestCase(unittest.TestCase):
