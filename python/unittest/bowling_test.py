@@ -1,16 +1,5 @@
 import unittest
 
-_pins = 0
-
-
-def roll(pins):
-    global _pins
-    _pins = pins
-
-
-def score():
-    return _pins
-
 
 class Game:
     def __init__(self):
