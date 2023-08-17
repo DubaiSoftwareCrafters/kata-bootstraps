@@ -1,10 +1,16 @@
 require 'minitest/autorun'
 require 'socket'
+require 'timeout'
 
 class IrcTest < Minitest::Test
 
   def test_connect_invalid_host
-    client = IrcClient.new('invalid host')
+    client = IrcClient.new('invalid host', 8888)
+    refute client.is_connected
+  end
+
+  def test_connect_invalid_port
+    client = IrcClient.new('irc.libera.chat', 8888)
     refute client.is_connected
   end
 
@@ -12,10 +18,12 @@ end
 
 class IrcClient
 
-  def initialize(host)
+  def initialize(host, port)
     begin
-      TCPSocket.new(host, 8888)
+      Timeout.timeout(5) { TCPSocket.new(host, port) }
     rescue SocketError
+      @is_connected = false
+    rescue Timeout::Error
       @is_connected = false
     end
   end
