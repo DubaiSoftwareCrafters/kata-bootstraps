@@ -64,7 +64,7 @@ class IrcClient
       if nickname_already_in_use(line)
         return false
       end
-      if line.include? ':End of /MOTD command.'
+      if user_registered(line)
         return true
       end
     end
@@ -75,6 +75,10 @@ class IrcClient
   end
 
   private
+
+  def user_registered(line)
+    line.include? ':End of /MOTD command.'
+  end
 
   def nickname_already_in_use(line)
     line.include? ':Nickname is already in use.'
