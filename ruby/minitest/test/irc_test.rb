@@ -35,7 +35,7 @@ class IrcTest < Minitest::Test
     client = IrcClient.new('irc.libera.chat', 6667)
     client.register('CCClient_listing')
 
-    assert client.list_channels > 0
+    assert client.list_channels.length > 0
   end
 
 end
@@ -87,7 +87,7 @@ class IrcClient
     while (line = @tcp_socket.gets)
       lines.append line
       if line.include? ':End of /LIST'
-        return lines.length
+        return lines
       end
     end
   end
