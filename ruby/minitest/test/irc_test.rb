@@ -92,8 +92,6 @@ class IrcClient
     end
   end
 
-  private
-
   def send_message(string)
     @tcp_socket.puts string
   end
