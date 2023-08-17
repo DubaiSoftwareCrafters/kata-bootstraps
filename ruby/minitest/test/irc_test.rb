@@ -25,7 +25,15 @@ class IrcClient
 
   def initialize(host, port)
     begin
-      Timeout.timeout(5) { TCPSocket.new(host, port) }
+      tcp_socket = Timeout.timeout(5) { TCPSocket.new(host, port) }
+
+      while (line = tcp_socket.gets)
+        if line.include? 'NOTICE'
+          @is_connected = true
+          break
+        end
+      end
+
     rescue SocketError
       @is_connected = false
     rescue Timeout::Error
