@@ -64,8 +64,8 @@ class IrcClient
   end
 
   def register(nick_name)
-    send_message("NICK #{nick_name}")
-    @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
+    send_message "NICK #{nick_name}"
+    send_message "USER guest 0 * :Coding Challenges Client"
 
     while (line = @tcp_socket.gets)
       if nickname_already_in_use(line)
