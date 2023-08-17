@@ -25,14 +25,13 @@ class IrcClient
 
   def initialize(host, port)
     begin
-      tcp_socket = Timeout.timeout(5) { TCPSocket.new(host, port) }
+      tcp_socket = make_socket(host, port)
       while (line = tcp_socket.gets)
         if line.include? 'NOTICE'
           @is_connected = true
           break
         end
       end
-
     rescue SocketError
       @is_connected = false
     rescue Timeout::Error
@@ -42,5 +41,11 @@ class IrcClient
 
   def is_connected
     @is_connected
+  end
+
+  private
+
+  def make_socket(host, port)
+    tcp_socket = Timeout.timeout(5) { TCPSocket.new(host, port) }
   end
 end
