@@ -56,10 +56,6 @@ class IrcClient
     @is_connected
   end
 
-  def is_registered
-    @is_registered
-  end
-
   def register(nick_name)
     @tcp_socket.puts "NICK #{nick_name}"
     @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
@@ -73,8 +69,6 @@ class IrcClient
       end
     end
   end
-
-  private
 
   def make_socket(host, port)
     Timeout.timeout(5) { TCPSocket.new(host, port) }
