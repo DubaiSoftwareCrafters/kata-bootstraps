@@ -14,6 +14,11 @@ class IrcTest < Minitest::Test
     refute client.is_connected
   end
 
+  def test_connection_success
+    client = IrcClient.new('irc.libera.chat', 6667)
+    assert client.is_connected
+  end
+
 end
 
 class IrcClient
