@@ -46,7 +46,6 @@ class IrcClient
     begin
       @tcp_socket = make_socket(host, port)
       while (line = @tcp_socket.gets)
-        puts line
         if line.include? 'NOTICE'
           @is_connected = true
           break
