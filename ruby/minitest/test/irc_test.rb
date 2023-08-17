@@ -27,6 +27,14 @@ class IrcTest < Minitest::Test
     assert client.is_registered
   end
 
+  def test_existing_nickname
+    client = IrcClient.new('irc.libera.chat', 6667)
+
+    client.register('jon')
+
+    refute client.is_registered
+  end
+
 end
 
 class IrcClient
@@ -61,7 +69,10 @@ class IrcClient
     @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
 
     while (line = @tcp_socket.gets)
-      puts line
+      if line.include? ':Nickname is already in use.'
+        @is_registered = false
+        break
+      end
       if line.include? ':End of /MOTD command.'
         @is_registered = true
         break
