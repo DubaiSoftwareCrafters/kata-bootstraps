@@ -64,7 +64,7 @@ class IrcClient
   end
 
   def register(nick_name)
-    @tcp_socket.puts "NICK #{nick_name}"
+    send_message("NICK #{nick_name}")
     @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
 
     while (line = @tcp_socket.gets)
@@ -93,6 +93,10 @@ class IrcClient
   end
 
   private
+
+  def send_message(string)
+    @tcp_socket.puts string
+  end
 
   def user_registered(line)
     line.include? ':End of /MOTD command.'
