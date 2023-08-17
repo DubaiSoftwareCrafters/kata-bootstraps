@@ -61,7 +61,7 @@ class IrcClient
     @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
 
     while (line = @tcp_socket.gets)
-      if line.include? ':Nickname is already in use.'
+      if nickname_already_in_use(line)
         return false
       end
       if line.include? ':End of /MOTD command.'
@@ -72,5 +72,11 @@ class IrcClient
 
   def make_socket(host, port)
     Timeout.timeout(5) { TCPSocket.new(host, port) }
+  end
+
+  private
+
+  def nickname_already_in_use(line)
+    line.include? ':Nickname is already in use.'
   end
 end
