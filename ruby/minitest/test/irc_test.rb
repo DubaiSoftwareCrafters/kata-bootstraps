@@ -82,7 +82,7 @@ class IrcClient
   end
 
   def list_channels
-    @tcp_socket.puts "list"
+    send_message "list"
     lines = []
     while (line = @tcp_socket.gets)
       lines.append line
