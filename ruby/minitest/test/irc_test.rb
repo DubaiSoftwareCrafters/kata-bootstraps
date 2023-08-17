@@ -31,6 +31,13 @@ class IrcTest < Minitest::Test
     refute client.register('jon')
   end
 
+  def test_list_channels
+    client = IrcClient.new('irc.libera.chat', 6667)
+    client.register('CCClient_listing')
+
+    assert client.list_channels > 0
+  end
+
 end
 
 class IrcClient
@@ -72,6 +79,14 @@ class IrcClient
 
   def make_socket(host, port)
     Timeout.timeout(5) { TCPSocket.new(host, port) }
+  end
+
+  def channels
+    # code here
+  end
+
+  def list_channels
+
   end
 
   private
