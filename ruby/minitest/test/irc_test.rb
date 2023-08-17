@@ -19,6 +19,14 @@ class IrcTest < Minitest::Test
     assert client.is_connected
   end
 
+  def test_register_user
+    client = IrcClient.new('irc.libera.chat', 6667)
+
+    client.register('jon')
+
+    assert client.is_registered
+  end
+
 end
 
 class IrcClient
@@ -41,6 +49,14 @@ class IrcClient
 
   def is_connected
     @is_connected
+  end
+
+  def is_registered
+    # code here
+  end
+
+  def register(nick_name)
+    # code here
   end
 
   private
