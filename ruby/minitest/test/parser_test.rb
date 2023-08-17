@@ -13,8 +13,8 @@ class ParserTest < Minitest::Test
     assert_equal  "yabause", parse_channel(line)
     end
 
-  def parse_channels(lines1)
-    # code here
+  def parse_channels(lines)
+    lines.map {|line| parse_channel line}
   end
 
   def test_channel_names
