@@ -33,8 +33,9 @@ class IrcClient
 
   def initialize(host, port)
     begin
-      tcp_socket = make_socket(host, port)
-      while (line = tcp_socket.gets)
+      @tcp_socket = make_socket(host, port)
+      while (line = @tcp_socket.gets)
+        puts line
         if line.include? 'NOTICE'
           @is_connected = true
           break
@@ -52,11 +53,20 @@ class IrcClient
   end
 
   def is_registered
-    # code here
+    @is_registered
   end
 
   def register(nick_name)
-    # code here
+    @tcp_socket.puts "NICK CCClient"
+    @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
+
+    while (line = @tcp_socket.gets)
+      puts line
+      if line.include? ':End of /MOTD command.'
+        @is_registered = true
+        break
+      end
+    end
   end
 
   private
