@@ -10,19 +10,19 @@ class ParserTest < Minitest::Test
   def test_channel_name
     line = ":lithium.libera.chat 322 CCClient #yabause 12 :Yabause, A Beautiful And Under-rated Saturn Emulator | 0.9.15 has been released! | This is COOL | Our new home!"
 
-    assert_equal  "yabause", parse_channel(line)
-    end
+    assert_equal "yabause", parse_channel(line)
+  end
 
   def parse_channels(lines)
-    lines.map {|line| parse_channel line}
+    lines.map { |line| parse_channel line }
   end
 
   def test_channel_names
     line = ":lithium.libera.chat 322 CCClient #yabause 12 :Yabause, A Beautiful And Under-rated Saturn Emulator | 0.9.15 has been released! | This is COOL | Our new home!"
 
-    lines = [line,line]
+    lines = [line, line]
 
-    assert_equal  ["yabause","yabause"], parse_channels(lines)
+    assert_equal ["yabause", "yabause"], parse_channels(lines)
   end
 
 end
