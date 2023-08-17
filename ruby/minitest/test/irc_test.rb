@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'socket'
 
 class IrcTest < Minitest::Test
 
@@ -13,8 +14,8 @@ class IrcClient
 
   def initialize(host)
     begin
-    TCPSocket.new(host,8888)
-    rescue NameError
+      TCPSocket.new(host, 8888)
+    rescue SocketError
       @is_connected = false
     end
   end
