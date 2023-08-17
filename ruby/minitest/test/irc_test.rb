@@ -46,6 +46,6 @@ class IrcClient
   private
 
   def make_socket(host, port)
-    tcp_socket = Timeout.timeout(5) { TCPSocket.new(host, port) }
+    Timeout.timeout(5) { TCPSocket.new(host, port) }
   end
 end
