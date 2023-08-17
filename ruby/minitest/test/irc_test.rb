@@ -22,7 +22,7 @@ class IrcTest < Minitest::Test
   def test_register_user
     client = IrcClient.new('irc.libera.chat', 6667)
 
-    client.register('jon')
+    client.register('CCClient')
 
     assert client.is_registered
   end
@@ -57,7 +57,7 @@ class IrcClient
   end
 
   def register(nick_name)
-    @tcp_socket.puts "NICK CCClient"
+    @tcp_socket.puts "NICK #{nick_name}"
     @tcp_socket.puts "USER guest 0 * :Coding Challenges Client"
 
     while (line = @tcp_socket.gets)
