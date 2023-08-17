@@ -81,12 +81,15 @@ class IrcClient
     Timeout.timeout(5) { TCPSocket.new(host, port) }
   end
 
-  def channels
-    # code here
-  end
-
   def list_channels
-
+    @tcp_socket.puts "list"
+    lines = []
+    while (line = @tcp_socket.gets)
+      lines.append line
+      if line.include? ':End of /LIST'
+        return lines.length
+      end
+    end
   end
 
   private
